@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Framework", "UBIF.Framework\UBIF.Framework.csproj", "{D262E094-C9DF-4AC0-9CE7-C81A51D2A395}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Framework.Model", "UBIF.Framework.Model\UBIF.Framework.Model.csproj", "{F17FA38C-6146-4599-870E-4BB259A7FC55}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{D262E094-C9DF-4AC0-9CE7-C81A51D2A395}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D262E094-C9DF-4AC0-9CE7-C81A51D2A395}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D262E094-C9DF-4AC0-9CE7-C81A51D2A395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F17FA38C-6146-4599-870E-4BB259A7FC55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17FA38C-6146-4599-870E-4BB259A7FC55}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17FA38C-6146-4599-870E-4BB259A7FC55}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17FA38C-6146-4599-870E-4BB259A7FC55}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
