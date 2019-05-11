@@ -21,6 +21,12 @@ namespace UBIF.Framework.Controllers
         {
             return "1111";
         }
-
+        [Route("Login")]
+        [HttpGet]
+        public HttpResponseMessage Login(string username, string password)
+        {
+            ResultModel resultModel = new ResultModel();
+            var model = GetLoginModel(username, password);
+        }
     }
 }
