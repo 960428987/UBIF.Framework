@@ -25,11 +25,12 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-
+using System.Web.SessionState;
 namespace UBIF.Framework.Code
 {
-    public class WebHelper
+    public class WebHelper: IHttpHandler, IRequiresSessionState
     {
+        public bool IsReusable => throw new NotImplementedException();
         #region ResolveUrl(解析相对Url)
         /// <summary>
         /// 解析相对Url
@@ -160,6 +161,7 @@ namespace UBIF.Framework.Code
         /// <param name="value">Session的键值</param>
         public static void WriteSession(string key, string value)
         {
+           
             WriteSession<string>(key, value);
         }
 
@@ -412,6 +414,11 @@ namespace UBIF.Framework.Code
             html = html.Replace("'", "’");
             html = html.Replace("&nbsp;", " ");
             return html;
+        }
+
+        public void ProcessRequest(HttpContext context)
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

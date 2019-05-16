@@ -9,7 +9,7 @@ using System.Threading;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using UBIF.Framework.Model;
+using UBIF.Framework.Data;
 using Newtonsoft.Json;
 
 namespace UBIF.Framework

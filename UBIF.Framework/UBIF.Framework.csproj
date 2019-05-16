@@ -46,6 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=2.0.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.2.0.2\lib\net45\Microsoft.Owin.dll</HintPath>
@@ -62,6 +68,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -281,6 +288,9 @@
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TestClientReferences.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TestClientDialogs.cshtml" />
+    <Content Include="Configs\database.config" />
+    <Content Include="Configs\log4net.config" />
+    <Content Include="Configs\system.config" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -341,9 +351,13 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UBIF.Framework.Model\UBIF.Framework.Model.csproj">
-      <Project>{f17fa38c-6146-4599-870e-4bb259a7fc55}</Project>
-      <Name>UBIF.Framework.Model</Name>
+    <ProjectReference Include="..\UBIF.Framework.Code\UBIF.Framework.Code.csproj">
+      <Project>{a27a352d-0fc6-4352-b4fb-57e780a03e15}</Project>
+      <Name>UBIF.Framework.Code</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UBIF.Framework.Data\UBIF.Framework.Data.csproj">
+      <Project>{6af22ece-30b6-4b17-93e8-c5e227b97ca5}</Project>
+      <Name>UBIF.Framework.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

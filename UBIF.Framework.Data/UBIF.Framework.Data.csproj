@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>6af22ece-30b6-4b17-93e8-c5e227b97ca5</ProjectGuid>
+    <ProjectGuid>{6AF22ECE-30B6-4B17-93E8-C5E227B97CA5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>UBIF.Framework.Data</RootNamespace>
@@ -31,24 +31,118 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-    
-    <Reference Include="System.Core"/>
-    <Reference Include="System.Xml.Linq"/>
-    <Reference Include="System.Data.DataSetExtensions"/>
-    
-    
-    <Reference Include="Microsoft.CSharp"/>
-    
-    <Reference Include="System.Data"/>
-    
-    <Reference Include="System.Net.Http"/>
-    
-    <Reference Include="System.Xml"/>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="DbLogType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultModel.cs" />
+    <Compile Include="ResultStatusEnum.cs" />
+    <Compile Include="Sys_Area.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_DbBackup.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_FilterIP.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Items.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ItemsDetail.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Log.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Module.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ModuleButton.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ModuleForm.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_ModuleFormInstance.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Organize.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_Role.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_RoleAuthorize.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_User.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sys_UserLogOn.cs">
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UbifModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UbifModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UbifModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UbifModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UbifModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UbifModel.edmx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="UbifModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>UbifModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="UbifModel.edmx.diagram">
+      <DependentUpon>UbifModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UbifModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UbifModel.edmx</DependentUpon>
+      <LastGenOutput>UbifModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="UbifModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>UbifModel.edmx</DependentUpon>
+      <LastGenOutput>UbifModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
- </Project>
+</Project>

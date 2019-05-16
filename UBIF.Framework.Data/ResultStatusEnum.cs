@@ -24,7 +24,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UBIF.Framework.Model
+namespace UBIF.Framework.Data
 {
     public enum ResultStatusEnum
     {

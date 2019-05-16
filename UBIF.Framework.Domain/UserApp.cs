@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UBIF.Framework.Model
+namespace UBIF.Framework.Domain
 {
-    public class Class1
+    public class UserApp
     {
     }
 }
