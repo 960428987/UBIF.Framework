@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Framework.Model", "UBI
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Framework.Data", "UBIF.Framework.Data\UBIF.Framework.Data.csproj", "{6AF22ECE-30B6-4B17-93E8-C5E227B97CA5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Framework.Code", "UBIF.Framework.Code\UBIF.Framework.Code.csproj", "{A27A352D-0FC6-4352-B4FB-57E780A03E15}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6AF22ECE-30B6-4B17-93E8-C5E227B97CA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6AF22ECE-30B6-4B17-93E8-C5E227B97CA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6AF22ECE-30B6-4B17-93E8-C5E227B97CA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A27A352D-0FC6-4352-B4FB-57E780A03E15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A27A352D-0FC6-4352-B4FB-57E780A03E15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A27A352D-0FC6-4352-B4FB-57E780A03E15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A27A352D-0FC6-4352-B4FB-57E780A03E15}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
