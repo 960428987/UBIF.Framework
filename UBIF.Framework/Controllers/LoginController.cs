@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
+using UBIF.Framework.Application.SystemManagement;
 using UBIF.Framework.Code;
 using UBIF.Framework.Data;
 namespace UBIF.Framework.Controllers
@@ -57,7 +58,7 @@ namespace UBIF.Framework.Controllers
         /// <summary>
         /// 登录
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="userAccount"></param>
         /// <param name="password"></param>
         /// <param name="code"></param>
         /// <returns></returns>
@@ -153,13 +154,72 @@ namespace UBIF.Framework.Controllers
         }
 
         /// <summary>
-        /// 登录验证
+        /// 登录2
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="userAccount"></param>
         /// <param name="password"></param>
-        public void CheckLogin(string username,string password)
+        /// <param name="code"></param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("CheckLogin2")]
+        public HttpResponseMessage CheckLogin2(string userAccount, string password, string code)
         {
-
+            password = "4a7d1ed414474e4033ac29ccb8653d9b";
+            ResultModel result = new ResultModel();
+            HttpResponseMessage httpResponseMessage = new HttpResponseMessage();
+            try
+            {
+                Sys_Log logEntity = new Sys_Log();
+                if (string.IsNullOrWhiteSpace(userAccount))
+                {
+                    throw new Exception("用户名错误，请重新输入");
+                }
+                if (string.IsNullOrWhiteSpace(password))
+                {
+                    throw new Exception("密码错误，请重新输入");
+                }
+                if (HttpContext.Current.Session["ubif_session_verifycode"].IsEmpty() || Md5.md5(code.ToLower(), 16) != HttpContext.Current.Session["ubif_session_verifycode"].ToString())
+                {
+                    throw new Exception("验证码错误，请重新输入");
+                }
+                Sys_User userEntity = new UserApp().CheckLogin(userAccount, password);
+                if(userEntity != null)
+                {
+                    OperatorModel operatorModel = new OperatorModel();
+                    operatorModel.UserId = userEntity.F_Id;
+                    operatorModel.UserCode = userEntity.F_Account;
+                    operatorModel.UserName = userEntity.F_RealName;
+                    operatorModel.CompanyId = userEntity.F_OrganizeId;
+                    operatorModel.DepartmentId = userEntity.F_DepartmentId;
+                    operatorModel.RoleId = userEntity.F_RoleId;
+                    operatorModel.LoginIPAddress = Net.Ip;
+                    operatorModel.LoginIPAddressName = Net.GetLocation(operatorModel.LoginIPAddress);
+                    operatorModel.LoginTime = DateTime.Now;
+                    operatorModel.LoginToken = DESEncrypt.Encrypt(Guid.NewGuid().ToString());
+                    if (userEntity.F_Account == "admin")
+                    {
+                        operatorModel.IsSystem = true;
+                    }
+                    else
+                    {
+                        operatorModel.IsSystem = false;
+                    }
+                    OperatorProvider.Provider.AddCurrent(operatorModel);
+                    logEntity.F_Account = userEntity.F_Account;
+                    logEntity.F_NickName = userEntity.F_RealName;
+                    logEntity.F_Result = true;
+                    logEntity.F_Description = "登录成功";
+                    new LogApp().WriteDbLog(logEntity);
+                
+                }
+            }
+            catch (Exception e)
+            {
+                result.status = "0";
+                result.message = e.Message;
+            }
+            httpResponseMessage.Content = new StringContent(result.ToJson(), System.Text.Encoding.UTF8, "application/json"); ;
+            return httpResponseMessage;
         }
     }
 }

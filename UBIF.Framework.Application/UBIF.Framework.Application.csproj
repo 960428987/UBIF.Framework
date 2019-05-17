@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62866217-D853-453C-91F9-214BC5AADFB3}</ProjectGuid>
+    <ProjectGuid>{9FC1395A-9310-459F-AE6D-98D1E0EFBBF0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UBIF.Framework.Domain</RootNamespace>
-    <AssemblyName>UBIF.Framework.Domain</AssemblyName>
+    <RootNamespace>UBIF.Framework.Application</RootNamespace>
+    <AssemblyName>UBIF.Framework.Application</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,14 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,22 +44,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="01 Infrastructure\IEntity.cs" />
-    <Compile Include="IRepository\SystemManagement\ILogRepository.cs" />
-    <Compile Include="IRepository\SystemManagement\IUserLogOnRepository.cs" />
-    <Compile Include="IRepository\SystemManagement\IUserRepository.cs" />
-    <Compile Include="UserApp.cs" />
+    <Compile Include="SystemManagement\LogApp.cs" />
+    <Compile Include="SystemManagement\UserApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemManagement\UserLogOnApp.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\UBIF.Framework.Code\UBIF.Framework.Code.csproj">
+      <Project>{A27A352D-0FC6-4352-B4FB-57E780A03E15}</Project>
+      <Name>UBIF.Framework.Code</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UBIF.Framework.Data\UBIF.Framework.Data.csproj">
       <Project>{6af22ece-30b6-4b17-93e8-c5e227b97ca5}</Project>
       <Name>UBIF.Framework.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UBIF.Framework.Domain\UBIF.Framework.Domain.csproj">
+      <Project>{62866217-D853-453C-91F9-214BC5AADFB3}</Project>
+      <Name>UBIF.Framework.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UBIF.Framework.Repository\UBIF.Framework.Repository.csproj">
+      <Project>{5e00dbd5-ab82-46fc-be3c-9c47f864a2ff}</Project>
+      <Name>UBIF.Framework.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -29,7 +29,7 @@ namespace UBIF.Framework.Code
     public class OperatorProvider
     {
         public static OperatorProvider Provider
-        {
+        {//直接创建个对象并返回
             get { return new OperatorProvider(); }
         }
         private string LoginUserKey = "ubif_loginUserKey_2016";

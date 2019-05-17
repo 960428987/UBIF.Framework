@@ -351,6 +351,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UBIF.Framework.Application\UBIF.Framework.Application.csproj">
+      <Project>{9fc1395a-9310-459f-ae6d-98d1e0efbbf0}</Project>
+      <Name>UBIF.Framework.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UBIF.Framework.Code\UBIF.Framework.Code.csproj">
       <Project>{a27a352d-0fc6-4352-b4fb-57e780a03e15}</Project>
       <Name>UBIF.Framework.Code</Name>

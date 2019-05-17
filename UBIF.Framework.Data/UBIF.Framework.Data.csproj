@@ -51,10 +51,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
-    <Compile Include="DbLogType.cs" />
+    <Compile Include="Model\DbLogType.cs" />
+    <Compile Include="Model\OperatorModel.cs" />
+    <Compile Include="Model\Pagination.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultModel.cs" />
-    <Compile Include="ResultStatusEnum.cs" />
+    <Compile Include="Model\ResultModel.cs" />
+    <Compile Include="Model\ResultStatusEnum.cs" />
+    <Compile Include="Repository\IRepositoryBase.T.cs" />
+    <Compile Include="Repository\RepositoryBase.cs" />
     <Compile Include="Sys_Area.cs">
       <DependentUpon>UbifModel.tt</DependentUpon>
     </Compile>
